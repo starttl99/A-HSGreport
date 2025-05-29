@@ -1,0 +1,52 @@
+// js/data.js
+const HSG_DATA = {
+  production: {
+    medical: {
+      rate: 87.6,
+      companies: [
+        { name: "세라젬", rate: 90.8 },
+        { name: "누가의료기", rate: 85.2 },
+        { name: "모터플랫폼", rate: 80.0 }
+      ]
+    },
+    door: {
+      rate: 96.2,
+      companies: [
+        { name: "펜타포스", rate: 98.1 },
+        { name: "태성자동문", rate: 95.0 },
+        { name: "밀레도어", rate: 93.5 }
+      ]
+    }
+  },
+  quality: {
+    defectRate: 0.0,
+    grade: "A+"
+  },
+  facility: {
+    operationRate: 95.2,
+    maintenance: [
+      { name: "라인1", status: "정상" },
+      { name: "라인2", status: "정비중" }
+    ]
+  },
+  safety: {
+    accidentCount: 0,
+    noAccidentDays: 342
+  },
+  management: [
+    { point: "3H 업체 달성률 23% (긴급 대응 필요)", urgent: true },
+    { point: "중국세라젠 달성률 90.8% (생산능력 검토)", urgent: false }
+  ]
+};
+
+// 샘플 데이터 fetch 함수
+async function fetchHSGData() {
+  try {
+    const res = await fetch('data/sample.json');
+    if (!res.ok) throw new Error();
+    return await res.json();
+  } catch {
+    // fetch 실패 시 기본 데이터 반환
+    return HSG_DATA;
+  }
+} 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HSG 자회사 일일업무보고 대시보드</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div id="loader" class="loader"></div>
+  <header>
+    <h1>HSG 자회사 일일업무보고</h1>
+    <nav>
+      <button id="view-daily" class="nav-btn active">일별</button>
+      <button id="view-weekly" class="nav-btn">주간</button>
+      <button id="view-monthly" class="nav-btn">월간</button>
+    </nav>
+  </header>
+  <main>
+    <section class="dashboard">
+      <!-- 카드: 생산실적, 품질, 설비, 안전 -->
+      <div class="card" id="production-card">
+        <h2>생산실적</h2>
+        <canvas id="productionChart"></canvas>
+      </div>
+      <div class="card" id="quality-card">
+        <h2>품질현황</h2>
+        <canvas id="qualityChart"></canvas>
+      </div>
+      <div class="card" id="facility-card">
+        <h2>설비현황</h2>
+        <canvas id="facilityChart"></canvas>
+      </div>
+      <div class="card" id="safety-card">
+        <h2>안전현황</h2>
+        <canvas id="safetyChart"></canvas>
+      </div>
+    </section>
+    <section class="management">
+      <h2>주요 관리 포인트</h2>
+      <ul id="management-list"></ul>
+    </section>
+    <section class="export-section">
+      <button id="export-json">JSON 내보내기</button>
+      <button id="export-csv">CSV 내보내기</button>
+    </section>
+  </main>
+  <div id="notification" class="notification"></div>
+  <script src="js/data.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html> 
